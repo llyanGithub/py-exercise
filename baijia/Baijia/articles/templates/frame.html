@@ -1,0 +1,68 @@
+<html>
+    <meta charset="utf-8"/>
+<head>
+<script type="text/javascript">
+
+</script>
+
+<style type="text/css">
+    body {
+        margin:0px; 
+        padding:0px;
+    }
+
+    #wrapper {
+         
+    }
+    .article_list{
+        margin:10px; 
+        padding:10px;
+    }
+    .article_list:hover {
+        background:#ebebeb; 
+    }
+    img {
+        display:inline-block; 
+        width:200px;
+        height:120px;
+        float:left;
+    }
+    .article_title {
+        float:left;
+        width:300px;
+        margin-left:15px;
+    }
+    .article_abstract {
+        float:left;
+        width:300px;
+        margin-left:15px;
+    }
+    .clear {
+        clear:both; 
+    }
+
+</style>
+</head>
+
+<body>
+    <div id="wrapper">
+        {% for article in articles_list %}
+            <div class="article_list">
+                {% load staticfiles %}
+                <img src="{{ article.pic_href }}"/>
+                <div class="article_title">
+                    <a href="{{ article.article_href  }}">{{ article.article_title }}</a>
+                </div>
+                <div class="article_abstract">
+                    <p>{{ article.article_abstract  }}</p>
+                </div>
+                <div class="clear"></div>
+            </div>
+            
+        {% endfor %}
+
+    </div>
+
+</body>
+
+</html>
