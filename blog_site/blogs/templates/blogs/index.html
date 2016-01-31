@@ -1,0 +1,42 @@
+{% load staticfiles %}
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header">
+        </div>
+        <div id="content">
+            <div id="left">
+                <ul class="sidebar">
+                    <p class="list_title"> 文章列表</p>
+                    {% for article in articleList %}
+                    <li><a href="#">第{{ article.id }}篇文章</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div id="middle">
+                <p class="article_title"> 到底生活是什么？ </p>
+                <div class="article_info">
+                    <ul>
+<!--
+                        <li> 时间：2016-1-29</li>
+                        <li> 作者：Linglong Yan </li>
+-->
+                        <li> 时间：{{ articleDetial.time }}</li>
+                        <li> 作者：{{ articleDetial.auth }}</li>
+                    </ul>
+                </div>
+                <div class="article_content">
+                    <p> {{ articleContent }} </p>
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
